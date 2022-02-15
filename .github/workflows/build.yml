@@ -19,8 +19,10 @@ jobs:
           cache: maven
           server-id: output # Value of the distributionManagement/repository/id field of the pom.xml
       - name: Build with Maven
-        run: mvn --batch-mode deploy -Drepository=${GITHUB_REPOSITORY} -Downer=$(GITHUB_REPOSITORY_OWNER | cut -d'/' -f 2)
+        run: |
+          echo $(GITHUB_REPOSITORY_OWNER | cut -d'/' 2)
+          mvn --batch-mode deploy -Drepository=${GITHUB_REPOSITORY} -Downer=${GITHUB_REPOSITORY_OWNER}
         env:
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES }}
-          GITHUB_REPOSITORY: 'core'
-          GITHUB_REPOSITORY_OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
+          GITHUB_REPOSITORY: 'agencia-tributaria/core'
+          GITHUB_REPOSITORY_OWNER: ${{ agencia-tributaria }}
