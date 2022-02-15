@@ -25,4 +25,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES }}
           GITHUB_REPOSITORY: 'agencia-tributaria/core'
-          GITHUB_REPOSITORY_OWNER: ${{ agencia-tributaria }}
+          GITHUB_REPOSITORY_OWNER: 'agencia-tributaria'
