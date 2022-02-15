@@ -26,5 +26,5 @@ jobs:
           mvn --batch-mode deploy -Drepository=${GITHUB_REPOSITORY} -Downer=${GITHUB_REPOSITORY_OWNER}
         env:
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES }}
-          GITHUB_REPOSITORY: ${{ GITHUB_REPOSITORY }}
-          GITHUB_REPOSITORY_OWNER: ${{ GITHUB_REPOSITORY_OWNER }}
+          GITHUB_REPOSITORY: ${{ env.GITHUB_REPOSITORY }}
+          GITHUB_REPOSITORY_OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
