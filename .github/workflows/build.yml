@@ -4,6 +4,7 @@ on:
     paths:
       - 'src/main/java/**.java'
       - 'pom.xml'
+      - '.github/workflows/build.yml'
       
 jobs:
   build:
@@ -20,7 +21,8 @@ jobs:
           server-id: output # Value of the distributionManagement/repository/id field of the pom.xml
       - name: Build with Maven
         run: |
-          echo $(GITHUB_REPOSITORY_OWNER | cut -d'/' 2)
+          $GIT_REPOSITORY_OWNER=$(echo $GITHUB_REPOSITORY_OWNER cut -d'/' 2)
+          echo "owner: $GIT_REPOSITORY_OWNER"
           mvn --batch-mode deploy -Drepository=${GITHUB_REPOSITORY} -Downer=${GITHUB_REPOSITORY_OWNER}
         env:
           GITHUB_TOKEN: ${{ secrets.WRITE_PACKAGES }}
