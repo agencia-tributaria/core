@@ -17,7 +17,7 @@
   <distributionManagement>
    <repository>
      <id>output</id>
-     <url>https://maven.pkg.github.com/agencia-tributaria/core</url>
+     <url>https://maven.pkg.github.com/agencia-tributaria</url>
    </repository>
   </distributionManagement>
 
